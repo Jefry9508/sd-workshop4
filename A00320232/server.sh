@@ -8,3 +8,7 @@ adduser consul
 passwd consul
 chown -R consul:consul /etc/consul
 chown -R consul:consul /etc/consul.d
+firewall-cmd --zone=public --add-port=8301/tcp --permanent
+firewall-cmd --zone=public --add-port=8300/tcp --permanent
+firewall-cmd --zone=public --add-port=8500/tcp --permanent
+firewall-cmd --reload
