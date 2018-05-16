@@ -13,13 +13,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     nodoServer.vm.provision "shell", path: "nodoServer.sh"
   end
   
-  config.vm.define :centos_serviceA do |nodoServiceA|
-    nodoServiceA.vm.box = "centos_rabbit"
-    nodoServiceA.vm.network :private_network, ip: "192.168.56.62"
-    nodoServiceA.vm.provider :virtualbox do |vb|
-      vb.customize ["modifyvm", :id, "--memory", "256","--cpus", "1", "--name", "centos_serviceA" ]
+  config.vm.define :centos_serviceA1 do |nodoServiceA1|
+    nodoServiceA1.vm.box = "centos_rabbit"
+    nodoServiceA1.vm.network :private_network, ip: "192.168.56.62"
+    nodoServiceA1.vm.provider :virtualbox do |vb|
+      vb.customize ["modifyvm", :id, "--memory", "256","--cpus", "1", "--name", "centos_serviceA1" ]
     end
-    nodoServiceA.vm.provision "shell", path: "serviceA.sh"
+    nodoServiceA1.vm.provision "shell", path: "serviceA.sh"
   end
   
   config.vm.define :centos_balanceador do |balanceador|
